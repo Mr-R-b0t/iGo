@@ -1,26 +1,32 @@
 package com.example.igofx;
 
+import java.util.Date;
+
 public class SmartCard {
     private int id;
-    private String validityDate;
+    private Date validityDate;
 
     private int price;
 
     private String type;
 
+    private Photo photo;
 
-    public SmartCard(int id, String validityDate, int price, String type) {
+
+
+    public SmartCard(int id, Date date, int price, String type, Photo photo) {
         this.id = id;
         this.validityDate = validityDate;
         this.price = price;
         this.type = type;
+        this.photo = photo;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getValidityDate() {
+    public Date getValidityDate() {
         return validityDate;
     }
 
@@ -36,7 +42,7 @@ public class SmartCard {
         this.id = id;
     }
 
-    public void setValidityDate(String validityDate) {
+    public void setValidityDate(Date validityDate) {
         this.validityDate = validityDate;
     }
 

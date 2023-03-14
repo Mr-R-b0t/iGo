@@ -17,6 +17,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+
+import java.util.Random;
+import java.util.Date;
+
+
+
 import java.io.IOException;
 
 public class Application extends javafx.application.Application {
@@ -178,6 +184,14 @@ public class Application extends javafx.application.Application {
             public void handle(ActionEvent e)
             {
                 finalText.setVisible(true);
+                Photo photo = new Photo();
+                Random rand = new Random();
+                int id = rand.nextInt();
+                int price = rand.nextInt();
+                Date date = new Date();
+                String Type = "Monthly";
+                SmartCard smartCard = new SmartCard(id, date,  price, Type, photo);
+                System.out.println(smartCard);
             }
         };
         photo.setOnAction(PhotoHandler);
