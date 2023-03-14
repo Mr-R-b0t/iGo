@@ -1,14 +1,18 @@
-public class Card
-{
+package com.example.igofx;
+
+public class SmartCard {
     private int id;
     private String validityDate;
-    private int balance;
+
+    private int price;
+
     private String type;
 
-    public Card(int id, String validityDate, int balance, String type) {
+
+    public SmartCard(int id, String validityDate, int price, String type) {
         this.id = id;
         this.validityDate = validityDate;
-        this.balance = balance;
+        this.price = price;
         this.type = type;
     }
 
@@ -20,8 +24,8 @@ public class Card
         return validityDate;
     }
 
-    public int getBalance() {
-        return balance;
+    public int getPrice() {
+        return price;
     }
 
     public String getType() {
@@ -36,9 +40,8 @@ public class Card
         this.validityDate = validityDate;
     }
 
-
-    public void setBalance(int balance) {
-        this.balance = balance;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setType(String type) {
@@ -47,7 +50,7 @@ public class Card
 
     @Override
     public String toString() {
-        return "Card [id=" + id + ", validityDate=" + validityDate + ", balance=" + balance + ", type=" + type + "]";
+        return "SmartCard [id=" + id + ", validityDate=" + validityDate + ", price=" + price + ", type=" + type + "]";
     }
 
 

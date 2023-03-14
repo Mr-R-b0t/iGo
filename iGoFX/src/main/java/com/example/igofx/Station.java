@@ -1,18 +1,17 @@
+package com.example.igofx;
+
 import java.util.Date;
 
-public class SmartCard {
+public class Station {
     private int id;
     private Date validityDate;
-
-    private int price;
-
+    private double balance;
     private String type;
 
-
-    public SmartCard(int id, Date validityDate, int price, String type) {
+    public Station(int id, Date validityDate, double balance, String type) {
         this.id = id;
         this.validityDate = validityDate;
-        this.price = price;
+        this.balance = balance;
         this.type = type;
     }
 
@@ -24,8 +23,8 @@ public class SmartCard {
         return validityDate;
     }
 
-    public int getPrice() {
-        return price;
+    public double getBalance() {
+        return balance;
     }
 
     public String getType() {
@@ -40,8 +39,8 @@ public class SmartCard {
         this.validityDate = validityDate;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 
     public void setType(String type) {
@@ -50,7 +49,7 @@ public class SmartCard {
 
     @Override
     public String toString() {
-        return "SmartCard [id=" + id + ", validityDate=" + validityDate + ", price=" + price + ", type=" + type + "]";
+        return "Station [id=" + id + ", validityDate=" + validityDate + ", balance=" + balance + ", type=" + type + "]";
     }
 
 

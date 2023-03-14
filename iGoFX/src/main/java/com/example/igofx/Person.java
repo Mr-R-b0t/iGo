@@ -1,3 +1,5 @@
+package com.example.igofx;
+
 import java.util.Date;
 
 public abstract class Person {

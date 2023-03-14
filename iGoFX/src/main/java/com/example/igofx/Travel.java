@@ -1,3 +1,5 @@
+package com.example.igofx;
+
 import java.util.Date;
 
 public class Travel {
@@ -12,15 +14,15 @@ public class Travel {
 
     private double price;
 
-    private Card card;
+    // private Card card;
 
-    public Travel(int id, Station start, Station end, Date time, double price, Card card) {
+    public Travel(int id, Station start, Station end, Date time, double price) {
         this.id = id;
         this.start = start;
         this.end = end;
         this.time = time;
         this.price = price;
-        this.card = card;
+        //this.card = card;
     }
 
     public int getId() {
@@ -43,9 +45,6 @@ public class Travel {
         return price;
     }
 
-    public Card getCard() {
-        return card;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -67,14 +66,10 @@ public class Travel {
         this.price = price;
     }
 
-    public void setCard(Card card) {
-        this.card = card;
-    }
 
     @Override
     public String toString() {
-        return "Travel [id=" + id + ", start=" + start + ", end=" + end + ", time=" + time + ", price=" + price + ", card="
-                + card + "]";
+        return "Travel [id=" + id + ", start=" + start + ", end=" + end + ", time=" + time + ", price=" + price + " ]";
     }
 
 }
