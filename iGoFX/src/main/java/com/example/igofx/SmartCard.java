@@ -6,7 +6,7 @@ public class SmartCard {
     private int id;
     private Date validityDate;
 
-    private int price;
+    private double price;
 
     private String type;
 
@@ -14,9 +14,9 @@ public class SmartCard {
 
 
 
-    public SmartCard(int id, Date date, int price, String type, Photo photo) {
+    public SmartCard(int id, Date date, double price, String type, Photo photo) {
         this.id = id;
-        this.validityDate = validityDate;
+        this.validityDate = date;
         this.price = price;
         this.type = type;
         this.photo = photo;
@@ -30,7 +30,7 @@ public class SmartCard {
         return validityDate;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -46,7 +46,7 @@ public class SmartCard {
         this.validityDate = validityDate;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -56,8 +56,6 @@ public class SmartCard {
 
     @Override
     public String toString() {
-        return "SmartCard [id=" + id + ", validityDate=" + validityDate + ", price=" + price + ", type=" + type + "]";
+        return "SmartCard n° " + id + " - Validity date : " + validityDate + " - Price : " + price + " - Type : " + type;
     }
-
-
 }

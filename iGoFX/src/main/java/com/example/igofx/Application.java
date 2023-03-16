@@ -8,7 +8,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -19,16 +21,25 @@ import javafx.stage.Stage;
 
 
 import java.util.Random;
+import java.util.Calendar;
 import java.util.Date;
 
 
 
 import java.io.IOException;
-
+import java.time.LocalDate;
+import java.time.Year;
 public class Application extends javafx.application.Application {
+    // Necessary declarations
+    double total_price = 0;
+    String final_type = "Monthly";
+    Date date = new Date();
+    Calendar calendar = Calendar.getInstance();
+
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("iGo");
+        
 
         // Title
         Text title = new Text("Buy a smartCard\n");
@@ -72,9 +83,19 @@ public class Application extends javafx.application.Application {
                     total = prices[pricesIndex];
                 int subIndex = subscriptionBox.getSelectionModel().getSelectedIndex();
                 if (subIndex == 1)
+                {
                     total *= 12;
+                    final_type = "Annual";
+                    calendar.add(Calendar.YEAR, 1);
+                }
+                else {
+                    calendar.add(Calendar.MONTH, 1);
+                }
+                    
                 totalLabel.setText("TOTAL = " + total + " $");
                 payButton.setVisible(true);
+                total_price = total;
+                
             }
         };
         confirmButton.setOnAction(ConfirmEvent);
@@ -85,16 +106,16 @@ public class Application extends javafx.application.Application {
         Label CCLabel = new Label("Credit card number");
         TextField CCNumber = new TextField();
         Label ExpirationLabel = new Label("Expiration date");
-        TextField ExpirationDate = new TextField();
+        DatePicker ExpirationDate = new DatePicker();
         Label SecretLabel = new Label("Secret number");
-        TextField SecretNumber = new TextField();
+        PasswordField SecretNumber = new PasswordField();
         Button finalPayment = new Button("Pay");
 
         // Final page
         Text approved = new Text("Transaction approved");
         approved.setFill(Color.GREEN);
         Button photo = new Button("Take a photo");
-        Text finalText = new Text("You can get your smartCard.\n\n  Thank you for your purchase.");
+        Text finalText = new Text("You can get your smartCard.\n\nThank you for your purchase.");
         finalText.setVisible(false);
 
         // HBoxes (structure)
@@ -186,11 +207,11 @@ public class Application extends javafx.application.Application {
                 finalText.setVisible(true);
                 Photo photo = new Photo();
                 Random rand = new Random();
-                int id = rand.nextInt();
-                int price = rand.nextInt();
-                Date date = new Date();
-                String Type = "Monthly";
-                SmartCard smartCard = new SmartCard(id, date,  price, Type, photo);
+                int id = rand.nextInt(100000);
+                date = calendar.getTime();
+                
+                SmartCard smartCard = new SmartCard(id, date, total_price, final_type, photo);
+                System.out.println("\nNew smartCard :");
                 System.out.println(smartCard);
             }
         };
